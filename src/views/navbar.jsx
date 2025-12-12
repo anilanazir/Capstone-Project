@@ -10,17 +10,17 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
   return (
     <nav className="w-full py-6 px-6 flex justify-between items-center absolute top-0 left-0 z-30 ">
-      {/* Logo */}
+      
       <h1 className="text-2xl font-bold text-white tracking-wide cursor-pointer">
         Greenstore
       </h1>
 
-      {/* Navigation */}
+     
       <div className="flex items-center gap-8">
         <NavigationMenu>
           <NavigationMenuList className="gap-8">
 
-            {/* Home */}
+           
             <NavigationMenuItem>
               <NavigationMenuLink
                 href="/"
@@ -30,7 +30,7 @@ const Navbar = () => {
               </NavigationMenuLink>
             </NavigationMenuItem>
 
-            {/* Products */}
+            
             <NavigationMenuItem>
               <NavigationMenuLink
                 href="/products"

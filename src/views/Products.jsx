@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { products } from "@/lib/staticData";
 import {
   Card,
@@ -8,8 +8,19 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { ShoppingCart } from "lucide-react";
+import { cartUI } from "@/features/cartUi";
+import { useDispatch } from "react-redux";
+import { addToCart } from "@/features/cartSlice";
 
-export default function Products() {
+const Products = () => {
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const dispatch = useDispatch();
+
+  const filteredProducts = products.filter((item) =>
+    item.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <section className="py-16 px-4 md:px-12">
       <div className="max-w-6xl mx-auto mb-10">
@@ -20,50 +31,59 @@ export default function Products() {
             <Input
               placeholder="Search plants..."
               className="border-gray-300 py-3"
-              readOnly
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
             />
           </div>
         </div>
       </div>
 
-      
       <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        {products.map((item) => (
-          <Card
-            key={item.id}
-            className="rounded-xl overflow-hidden shadow-md bg-[#f5f7f3] group relative"
-          >
-           
-            <button
-              type="button"
-              className="
-                absolute top-3 right-3 bg-white rounded-full p-2 shadow 
-                opacity-0 group-hover:opacity-100 transition duration-300 z-20
-              "
-              aria-label={`Add ${item.name} to cart`}
+        {filteredProducts.length > 0 ? (
+          filteredProducts.map((item) => (
+            <Card
+              key={item.id}
+              className="rounded-xl overflow-hidden shadow-md bg-[#f5f7f3] group relative"
             >
-              <ShoppingCart className="w-5 h-5 text-black" />
-            </button>
+              <button
+                type="button"
+                onClick={() => {
+                  dispatch(addToCart(item)); 
+                  cartUI.open(); 
+                }}
+                className="absolute top-3 right-3 bg-white rounded-full p-2 shadow opacity-0 group-hover:opacity-100 transition z-20"
+              >
+                <ShoppingCart className="w-5 h-5 text-black" />
+              </button>
 
-            <CardContent className="p-0">
-              <img
-                src={item.image}
-                alt={item.name}
-                className="w-full h-80 object-contain"
-              />
-            </CardContent>
+              <CardContent className="p-0">
+                <img
+                  src={item.image}
+                  alt={item.name}
+                  className="w-full h-80 object-contain"
+                />
+              </CardContent>
 
-            <CardHeader className="px-4 pt-2">
-              <h3 className="text-lg font-semibold">{item.name}</h3>
-              <p className="text-gray-500 text-sm mt-1">{item.description}</p>
-            </CardHeader>
+              <CardHeader className="">
+                <h3 className="text-lg font-semibold">{item.name}</h3>
+                <p className="text-gray-500 text-sm mt-1">{item.description}</p>
+              </CardHeader>
 
-            <CardFooter className="px-4 pb-2">
-              <p className="text-green-700 font-bold text-md">${item.price}</p>
-            </CardFooter>
-          </Card>
-        ))}
+              <CardFooter className="pb-2">
+                <p className="text-green-700 font-bold text-md">
+                  ${item.price}
+                </p>
+              </CardFooter>
+            </Card>
+          ))
+        ) : (
+          <p className="col-span-full text-center text-gray-500 text-lg">
+            No products found.
+          </p>
+        )}
       </div>
     </section>
   );
-}
+};
+
+export default Products;
