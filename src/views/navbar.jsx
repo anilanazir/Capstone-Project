@@ -40,7 +40,6 @@ const Navbar = () => {
               </NavigationMenuLink>
             </NavigationMenuItem>
 
-            {/* Contact */}
             <NavigationMenuItem>
               <NavigationMenuLink
                 href="/contact"
@@ -49,8 +48,7 @@ const Navbar = () => {
                 Contact
               </NavigationMenuLink>
             </NavigationMenuItem>
-
-            {/* Cart Icon */}
+            
             <NavigationMenuItem>
               <Link
                 to="/cart"

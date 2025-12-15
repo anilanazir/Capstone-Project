@@ -11,6 +11,7 @@ import { ShoppingCart } from "lucide-react";
 import { cartUI } from "@/features/cartUi";
 import { useDispatch } from "react-redux";
 import { addToCart } from "@/features/cartSlice";
+import { Link } from "react-router-dom";
 
 const Products = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -48,8 +49,8 @@ const Products = () => {
               <button
                 type="button"
                 onClick={() => {
-                  dispatch(addToCart(item)); 
-                  cartUI.open(); 
+                  dispatch(addToCart(item));
+                  cartUI.open();
                 }}
                 className="absolute top-3 right-3 bg-white rounded-full p-2 shadow opacity-0 group-hover:opacity-100 transition z-20"
               >
@@ -57,11 +58,13 @@ const Products = () => {
               </button>
 
               <CardContent className="p-0">
-                <img
-                  src={item.image}
-                  alt={item.name}
-                  className="w-full h-80 object-contain"
-                />
+                <Link to={`/product/${item.id}`}>
+                  <img
+                    src={item.image}
+                    alt={item.name}
+                    className="w-full h-80 object-contain"
+                  />
+                </Link>
               </CardContent>
 
               <CardHeader className="">
