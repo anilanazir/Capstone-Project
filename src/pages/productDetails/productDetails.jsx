@@ -22,7 +22,6 @@ const ProductDetails = () => {
   };
 
   return (
-    <>
       <section className="max-w-6xl mx-auto px-4 py-20 grid md:grid-cols-2 gap-12">
 
         <div className="bg-[#f5f7f3] rounded-xl p-6 flex items-center justify-center">
@@ -50,7 +49,6 @@ const ProductDetails = () => {
           </Button>
         </div>
       </section>
-    </>
   );
 };
 

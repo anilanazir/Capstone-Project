@@ -19,7 +19,7 @@ const HeroSection = () => {
           Let’s Bring the Spring to Your Home
         </h1>
 
-        <button className="mt-8 text-black bg-white hover:bg-green-600 px-8 py-3 rounded-xl text-lg shadow-md cursor-pointer">
+        <button className="mt-8 text-black bg-white hover:bg-[#5c9735] px-8 py-3 rounded-xl text-lg shadow-md cursor-pointer">
           Shop Now
         </button>
       </div>
