@@ -6,10 +6,11 @@ import { Input } from "@/components/ui/input";
 const Products = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
-  const filteredProducts = products.filter((item) =>
-    item.name.toLowerCase().includes(searchTerm.toLowerCase())
-  );
-
+  const filteredProducts = products
+    .filter((item) =>
+      item.name.toLowerCase().includes(searchTerm.toLowerCase())
+    )
+    .slice(0, 6);
   return (
     <section className="py-16 px-4 md:px-12">
       <div className="max-w-6xl mx-auto mb-10 flex flex-col md:flex-row justify-between gap-4">

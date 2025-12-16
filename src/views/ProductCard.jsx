@@ -40,10 +40,10 @@ const ProductCard = ({ product }) => {
 
         <CardHeader className="px-4 pt-2">
           <h3 className="text-lg font-semibold">{product.name}</h3>
-          <p className="text-gray-500 text-sm">{product.description}</p>
+          <p className="text-gray-500 text-sm">{product.category}</p>
         </CardHeader>
 
-        <CardFooter className="px-4 pb-4">
+        <CardFooter className="px-4 pt-2">
           <p className="text-green-700 font-bold text-md">
             ${product.price.toFixed(2)}
           </p>
