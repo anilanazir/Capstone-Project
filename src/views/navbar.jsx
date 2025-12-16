@@ -33,11 +33,11 @@ const Navbar = () => {
             <NavigationMenuItem>
               {" "}
               <NavigationMenuLink
-                href="/products"
+                href="/Plants"
                 className="text-xl text-white hover:text-green-600"
               >
                 {" "}
-                Products{" "}
+                Plants{" "}
               </NavigationMenuLink>{" "}
             </NavigationMenuItem>{" "}
             <NavigationMenuItem>

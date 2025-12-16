@@ -68,7 +68,7 @@ const Footer = () => {
       </div>
 
       <div className="border-t border-white/10 py-6 text-center text-sm text-gray-300">
-        © 2025 Plant Shop. Powered by Greenstore.
+        © 2025 Plant Shop. Powered by Plant Shop.
       </div>
     </footer>
   );

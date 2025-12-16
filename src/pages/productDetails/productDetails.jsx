@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { useDispatch } from "react-redux";
 import { addToCart } from "@/features/cartSlice";
 import { cartUI } from "@/features/cartUi";
-import Navbar from "@/views/navbar";
+
 
 const ProductDetails = () => {
   const { id } = useParams();
