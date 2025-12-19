@@ -1,6 +1,8 @@
+import { useNavigate } from "react-router-dom";
 import Navbar from "./navbar";
 import bgImg from "@/assets/hero-section-bg.jpg";
 const HeroSection = () => {
+  const navigate = useNavigate();
   return (
     <section className="relative h-screen w-full">
       <div
@@ -19,7 +21,10 @@ const HeroSection = () => {
           Let’s Bring the Spring to Your Home
         </h1>
 
-        <button className="mt-8 text-black bg-white hover:bg-[#5c9735] px-8 py-3 rounded-xl text-lg shadow-md cursor-pointer">
+        <button
+          onClick={() => navigate("/plants")}
+          className="mt-8 text-black bg-white hover:bg-[#5c9735] px-8 py-3 rounded-xl text-lg shadow-md cursor-pointer"
+        >
           Shop Now
         </button>
       </div>
