@@ -81,15 +81,11 @@ const CartDrawer = () => {
         </div>
 
         <div className="mt-4 flex flex-col gap-3 border-t pt-4">
-          <div className="flex justify-between text-lg font-semibold border-b pb-2">
-            <span>Subtotal:</span>
-            <span>${subtotal.toFixed(2)}</span>
-          </div>
           <div className="flex justify-between text-lg font-bold border-b pb-2">
             <span>Total:</span>
             <span>${total.toFixed(2)}</span>
           </div>
-          <button className="w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-xl font-semibold transition m-2">
+          <button className="w-full bg-[#579535] hover:bg-green-700 text-white py-3 rounded-xl font-semibold transition m-2">
             Proceed to Checkout
           </button>
         </div>

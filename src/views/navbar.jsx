@@ -4,65 +4,52 @@ import {
   NavigationMenuList,
   NavigationMenuLink,
 } from "@/components/ui/navigation-menu";
+import { cartUI } from "@/features/cartUi";
 import { ShoppingCart } from "lucide-react";
-import { Link } from "react-router-dom";
 const Navbar = () => {
   return (
     <nav className="w-full py-6 px-6 flex justify-between items-center absolute top-0 left-0 z-30 ">
-      {" "}
       <h1 className="text-2xl font-bold text-white tracking-wide cursor-pointer">
-        {" "}
-        Greenstore{" "}
-      </h1>{" "}
+        Greenstore
+      </h1>
       <div className="flex items-center gap-8">
-        {" "}
         <NavigationMenu>
-          {" "}
           <NavigationMenuList className="gap-8">
-            {" "}
             <NavigationMenuItem>
-              {" "}
               <NavigationMenuLink
                 href="/"
                 className="text-xl text-white hover:text-green-600"
               >
-                {" "}
-                Home{" "}
-              </NavigationMenuLink>{" "}
-            </NavigationMenuItem>{" "}
+                Home
+              </NavigationMenuLink>
+            </NavigationMenuItem>
             <NavigationMenuItem>
-              {" "}
               <NavigationMenuLink
                 href="/Plants"
                 className="text-xl text-white hover:text-green-600"
               >
-                {" "}
-                Plants{" "}
-              </NavigationMenuLink>{" "}
-            </NavigationMenuItem>{" "}
+                Plants
+              </NavigationMenuLink>
+            </NavigationMenuItem>
             <NavigationMenuItem>
-              {" "}
               <NavigationMenuLink
                 href="/contact"
                 className="text-xl text-white hover:text-green-600"
               >
-                {" "}
-                Contact{" "}
-              </NavigationMenuLink>{" "}
-            </NavigationMenuItem>{" "}
+                Contact
+              </NavigationMenuLink>
+            </NavigationMenuItem>
             <NavigationMenuItem>
-              {" "}
-              <Link
-                to="/cart"
+              <button
+                onClick={() => cartUI.open()}
                 className="p-2 cursor-pointer text-white hover:text-green-600 transition-colors"
               >
-                {" "}
-                <ShoppingCart className="w-6 h-6" />{" "}
-              </Link>{" "}
-            </NavigationMenuItem>{" "}
-          </NavigationMenuList>{" "}
-        </NavigationMenu>{" "}
-      </div>{" "}
+                <ShoppingCart className="w-6 h-6" />
+              </button>
+            </NavigationMenuItem>
+          </NavigationMenuList>
+        </NavigationMenu>
+      </div>
     </nav>
   );
 };
