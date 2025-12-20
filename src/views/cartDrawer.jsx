@@ -12,8 +12,10 @@ import {
   SheetHeader,
   SheetTitle,
 } from "@/components/ui/sheet";
+import { useNavigate } from "react-router-dom";
 
 const CartDrawer = () => {
+  const navigate = useNavigate();
   const [open, setOpen] = useState(false);
 
   const dispatch = useDispatch();
@@ -85,7 +87,10 @@ const CartDrawer = () => {
             <span>Total:</span>
             <span>${total.toFixed(2)}</span>
           </div>
-          <button className="w-full bg-[#579535] hover:bg-green-700 text-white py-3 rounded-xl font-semibold transition m-2">
+          <button
+            className="w-full bg-[#579535] hover:bg-green-700 text-white py-3 rounded-xl font-semibold transition m-2"
+            onClick={() => navigate("/checkout")}
+          >
             Proceed to Checkout
           </button>
         </div>
