@@ -12,7 +12,7 @@ const HeroSection = () => {
         <div className="absolute inset-0 bg-[#141a0f]/60"></div>
       </div>
 
-      <Navbar />
+      {/* <Navbar /> */}
 
       <div className="absolute inset-0 z-20 flex flex-col items-center justify-center text-center px-4">
         <h4 className="text-xl text-white mb-10">WELCOME TO THE GREENSTORE</h4>

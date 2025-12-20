@@ -1,14 +1,18 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import CartDrawer from "@/views/cartDrawer";
 import CartButton from "@/views/cartButton";
 import Navbar from "@/views/navbar";
 import Footer from "@/views/Footer";
 
 const MainLayout = () => {
+  const location = useLocation();
+
+  const hideNavbar = location.pathname === "/checkout";
+  const isHome = location.pathname === "/";
   return (
     <>
-      <Navbar/>
+      {!hideNavbar && <Navbar variant={isHome ? "transparent" : "default"} />}
       <Outlet />
       <CartButton />
       <CartDrawer />
