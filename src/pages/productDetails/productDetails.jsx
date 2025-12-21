@@ -6,8 +6,8 @@ import { addToCart } from "@/features/cartSlice";
 import { cartUI } from "@/features/cartUi";
 
 const ProductDetails = () => {
-  const { id } = useParams();
   const dispatch = useDispatch();
+  const { id } = useParams();
 
   const product = products.find((item) => item.id === Number(id));
 

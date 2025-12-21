@@ -99,7 +99,7 @@ const ContactPage = () => {
                 <label className="mb-1 font-semibold text-[#4D4F48]">
                   Name *
                 </label>
-                <Input placeholder="Full name" {...register("name")} />
+                <Input className="py-6!" placeholder="Full name" {...register("name")} />
                 {errors.name && (
                   <p className="text-red-500 text-sm mt-1">
                     {errors.name.message}
@@ -108,10 +108,10 @@ const ContactPage = () => {
               </div>
 
               <div className="flex flex-col">
-                <label className="mb-1 font-semibold text-[#4D4F48]">
+                <label className="mb-1 font-semibold text-[#4D4F48] ">
                   Email *
                 </label>
-                <Input placeholder="Email address" {...register("email")} />
+                <Input className="py-6!" placeholder="Email address" {...register("email")} />
                 {errors.email && (
                   <p className="text-red-500 text-sm mt-1">
                     {errors.email.message}

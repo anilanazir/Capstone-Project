@@ -6,7 +6,7 @@ import {
   NavigationMenuLink,
 } from "@/components/ui/navigation-menu";
 import { cartUI } from "@/features/cartUi";
-import { ShoppingCart, Menu as HamburgerIcon, X } from "lucide-react";
+import { ShoppingCart, Menu as HamburgerIcon, X, User } from "lucide-react";
 import { useSelector } from "react-redux";
 import { useLocation, Link } from "react-router-dom";
 
@@ -22,6 +22,7 @@ const Navbar = () => {
   const isHomePage = location.pathname === "/";
 
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [userDropdownOpen, setUserDropdownOpen] = useState(false);
 
   const navLinks = [
     { name: "Home", path: "/" },
@@ -36,13 +37,15 @@ const Navbar = () => {
       }`}
     >
       <div className="hidden md:flex justify-between items-center w-full">
-        <h1
-          className={`text-2xl font-bold tracking-wide cursor-pointer ${
-            isHomePage ? "text-white" : "text-black"
-          }`}
-        >
-          Greenstore
-        </h1>
+        <Link to="/">
+          <h1
+            className={`text-2xl font-bold tracking-wide cursor-pointer ${
+              isHomePage ? "text-white" : "text-black"
+            }`}
+          >
+            Greenstore
+          </h1>
+        </Link>
 
         <NavigationMenu>
           <NavigationMenuList className="gap-8 flex items-center">
@@ -73,7 +76,7 @@ const Navbar = () => {
                 <span className="text-lg font-medium">
                   ${totalPrice.toFixed(2)}
                 </span>
-                <div className="relative">
+                <div className="relative cursor-pointer">
                   <ShoppingCart className="w-6 h-6" />
                   {totalQty > 0 && (
                     <span className="absolute -top-2 -right-2 bg-green-600 text-white text-xs font-bold w-5 h-5 flex items-center justify-center rounded-full">
@@ -82,6 +85,37 @@ const Navbar = () => {
                   )}
                 </div>
               </button>
+            </NavigationMenuItem>
+            <NavigationMenuItem className="relative">
+              <button
+                onClick={() => setUserDropdownOpen(!userDropdownOpen)}
+                className={`p-2 rounded-full cursor-pointer ${
+                  isHomePage
+                    ? "text-white hover:text-green-600"
+                    : "text-green-600 hover:text-black"
+                }`}
+              >
+                <User size={24} />
+              </button>
+
+              {userDropdownOpen && (
+                <div className="absolute right-0 mt-2 w-40 bg-white shadow-lg rounded-md border z-50">
+                  <Link
+                    to="/signin"
+                    onClick={() => setUserDropdownOpen(false)}
+                    className="block px-4 py-2 hover:bg-gray-100"
+                  >
+                    Sign In
+                  </Link>
+                  <Link
+                    to="/signup"
+                    onClick={() => setUserDropdownOpen(false)}
+                    className="block px-4 py-2 hover:bg-gray-100"
+                  >
+                    Sign Up
+                  </Link>
+                </div>
+              )}
             </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>
@@ -101,13 +135,15 @@ const Navbar = () => {
           )}
         </button>
 
-        <h1
-          className={`text-2xl font-bold tracking-wide cursor-pointer ${
-            isHomePage ? "text-white" : "text-black"
-          }`}
-        >
-          Greenstore
-        </h1>
+        <Link to="/">
+          <h1
+            className={`text-2xl font-bold tracking-wide cursor-pointer ${
+              isHomePage ? "text-white" : "text-black"
+            }`}
+          >
+            Greenstore
+          </h1>
+        </Link>
 
         <button
           onClick={() => cartUI.open()}
@@ -145,7 +181,9 @@ const Navbar = () => {
       )}
 
       {!isHomePage && (
-        <hr className="absolute bottom-0 w-full border-gray-300" />
+        <div className="absolute bottom-0 left-0 right-0">
+          <hr className="border-gray-200" />
+        </div>
       )}
     </nav>
   );

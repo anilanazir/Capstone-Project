@@ -88,7 +88,7 @@ const CartDrawer = () => {
             <span>${total.toFixed(2)}</span>
           </div>
           <button
-            className="w-full bg-[#579535] hover:bg-green-700 text-white py-3 rounded-xl font-semibold transition m-2"
+            className="w-full bg-[#579535] hover:bg-green-700 text-white py-3 rounded-xl font-semibold transition mb-2"
             onClick={() => navigate("/checkout")}
           >
             Proceed to Checkout
