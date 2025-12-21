@@ -161,6 +161,30 @@ const Navbar = () => {
             )}
           </div>
         </button>
+        <button
+          onClick={() => setUserDropdownOpen(!userDropdownOpen)}
+          className={`${isHomePage ? "text-white" : "text-green-600"}`}
+        >
+          <User className="w-6 h-6" />
+        </button>
+        {userDropdownOpen && (
+          <div className="absolute top-full right-0 w-40 bg-white shadow-md rounded-md py-2 flex flex-col z-30">
+            <Link
+              to="/signin"
+              onClick={() => setUserDropdownOpen(false)}
+              className="px-4 py-2 hover:bg-gray-100 text-black font-medium"
+            >
+              Sign In
+            </Link>
+            <Link
+              to="/signup"
+              onClick={() => setUserDropdownOpen(false)}
+              className="px-4 py-2 hover:bg-gray-100 text-black font-medium"
+            >
+              Sign Up
+            </Link>
+          </div>
+        )}
       </div>
 
       {mobileMenuOpen && (
