@@ -4,7 +4,7 @@ import MainLayout from "./layout/MainLayout.jsx";
 import Home from "./pages/Home/home";
 import ProductDetails from "./pages/productDetails/productDetails";
 import Plants from "./pages/Plants/Plants";
-import ContactPage from "@/pages/Contact/ContactPage";
+import ContactPage from "./pages/Contact/ContactPage";
 import CheckoutPage from "./pages/Checkout/CheckoutPage";
 import SignIn from "./pages/SignIn/SignIn";
 import SignUp from "./pages/SignUp/SignUp";
