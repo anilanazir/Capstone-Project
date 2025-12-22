@@ -26,7 +26,7 @@ const Navbar = () => {
 
   const navLinks = [
     { name: "Home", path: "/" },
-    { name: "Plants", path: "/Plants" },
+    { name: "Plants", path: "/plants" },
     { name: "Contact", path: "/contact" },
   ];
 
@@ -51,15 +51,17 @@ const Navbar = () => {
           <NavigationMenuList className="gap-8 flex items-center">
             {navLinks.map((link) => (
               <NavigationMenuItem key={link.name}>
-                <NavigationMenuLink
-                  href={link.path}
-                  className={`text-xl ${
-                    isHomePage
-                      ? "text-white hover:text-green-600"
-                      : "text-black hover:text-green-600"
-                  } transition-colors`}
-                >
-                  {link.name}
+                <NavigationMenuLink asChild>
+                  <Link
+                    to={link.path}
+                    className={`text-xl ${
+                      isHomePage
+                        ? "text-white hover:text-green-600"
+                        : "text-black hover:text-green-600"
+                    } transition-colors`}
+                  >
+                    {link.name}
+                  </Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
             ))}
